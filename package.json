@@ -1,0 +1,29 @@
+{
+  "name": "ScoreKeeper",
+  "version": "1.0.0",
+  "description": "Score keeping web app for board games",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kchilds2020/ScoreKeeper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kchilds2020/ScoreKeeper/issues"
+  },
+  "homepage": "https://github.com/kchilds2020/ScoreKeeper#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
