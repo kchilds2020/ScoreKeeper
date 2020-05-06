@@ -13,7 +13,6 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //location of APIs
-/* app.use('/', require('./apis/groceryList'));
-app.use('/', require('./apis/item')); */
+app.use('/', require('./apis/posts'));
 
 app.listen(PORT, () => {console.log(`Server started on ${PORT}`);});

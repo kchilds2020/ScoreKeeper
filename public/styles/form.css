@@ -1,0 +1,30 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 20px;
+    padding-top: 10px;
+    background-color: #f4f4f4;
+    color:rgb(61, 61, 61);
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgb(61, 61, 61);
+}
+.form-title{
+    margin-top:0px;
+    margin-bottom: 7px;
+    font-size: 20px;
+}
+
+form input{
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form a{
+    padding: 5px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+}
