@@ -1,0 +1,14 @@
+#create-game {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#create-user{
+    position: absolute;
+    bottom: 150px;
+    right: 20px; 
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    font-size: x-large;
+}

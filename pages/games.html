@@ -8,20 +8,21 @@
 </head>
 <body>
     <div class = "container">
-    <h2>Completed Games</h2>
-    <ul>
-        <li>Games 1</li>
-        <li>Games 2</li>
-        <li>Games 3</li>
-    </ul>
+    <table style="width:100%" id = "games-table">
+        <tr>
+          <th>Game</th>
+          <th>Winner</th>
+          <th>Points</th>
+        </tr>
+      </table> 
 </div>
 <div class="navbar">
     <a href="/score" >Score</a>
     <a href="/timer">Timer</a>
     <a href="/games" class="active">Games</a>
-    
-  </div>
+</div>
 
-    
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="scripts/games.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
 }
-body{
+html, body{
     width: 100%;
     height: 100%;
     font-family: 'Nanum Gothic', sans-serif;
@@ -10,6 +10,7 @@ body{
     color: #f4f4f4;
 }
 .container{
+    position: relative;
     width: 90%;
     max-width: 800px;
     height: 100%;
@@ -51,6 +52,7 @@ button:hover{
     bottom: 0;
     width: 100%;
     height: 80px;
+    box-shadow: 0px -2px 4px rgb(61, 61, 61);
   }
   
   .navbar a {
@@ -73,4 +75,19 @@ button:hover{
   .navbar a.active {
     background-color: #333;
     color: white;
+  }
+  table{
+    margin-top: 30px;
+    background-color: #f4f4f4;
+    color: #333;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 2px 2px 6px rgb(61, 61, 61);
+  }
+  tr:first-child{
+    background-color: rgb(122, 202, 165);  
+  }
+  th, td {
+    padding: 8px;
+  border-bottom: 1px solid #ddd;
   }

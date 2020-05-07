@@ -46,6 +46,12 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
                 if (err) { next(err) } else { console.log('Sent:', directory + 'games.html') }
             })
         })
+        router.get('/api/games', redirectLogin , async (req,res,next) => {
+            console.log('call established');
+            let games = await db.collection('games').find( {gameCreator: req.session.userID} ).toArray();
+            console.log(games);
+            res.json(games);
+        })
     }
 });
 

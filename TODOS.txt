@@ -1,0 +1,3 @@
+-create a new game
+-add users to current game
+-add points to user in game
