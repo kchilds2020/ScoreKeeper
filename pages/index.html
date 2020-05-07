@@ -11,13 +11,15 @@
 <body>
     <div class = "container">
         <h1>Score Keeper</h1>
-        <form>
+        <div id ="form">
             <div class="form-title">Login</div>
-            <input type="text" placeholder="Username" class = "username-if" required>
-            <input type="password" placeholder="Password" class = "password-if" required>
-            <button class = "form-btn">Login</button>
-            <a href="#">Create an account</a>
-        </form>
+            <input type="text" placeholder="Username" class = "username-if" id="username-login-field" required>
+            <input type="password" placeholder="Password" class = "password-if" id="password-login-field" required>
+            <button class = "form-btn" id="login-btn">Login</button>
+            <a href="/register">Create an account</a>
+        </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/login.js"></script>
 </body>
 </html>

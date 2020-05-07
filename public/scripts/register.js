@@ -28,18 +28,17 @@ async function register(event) {
         return;
     }
     else{
-        const response = await fetch(`/register`, {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        const data = await response.json();
-        console.log(data);
+        axios.post('/register', user)
+              .then(function (response) {
+                if(response.status = '200'){
+                    window.location.href = `${response.request.responseURL}`;
+                }else{
+                    console.log(response);
+                }
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
     }
 
 }
