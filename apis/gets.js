@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path')
 var bcrypt = require('bcrypt');
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectId; 
 const dbName = "score-keeper";
 const saltRounds = 10;
 const directory = path.join(__dirname, '../');
@@ -34,6 +35,12 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
                 if (err) { next(err) } else { console.log('Sent:', directory + 'score.html') }
             })
         })
+        router.get('/home', redirectLogin ,(req,res,next) => {
+        
+            res.sendFile(directory + 'pages/home.html', function (err) {
+                if (err) { next(err) } else { console.log('Sent:', directory + 'home.html') }
+            })
+        })
         router.get('/timer', redirectLogin ,(req,res,next) => {
         
             res.sendFile(directory + 'pages/timer.html', function (err) {
@@ -46,11 +53,25 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
                 if (err) { next(err) } else { console.log('Sent:', directory + 'games.html') }
             })
         })
-        router.get('/api/games', redirectLogin , async (req,res,next) => {
+        router.get('/api/completed-games', redirectLogin , async (req,res,next) => {
             console.log('call established');
-            let games = await db.collection('games').find( {gameCreator: req.session.userID} ).toArray();
+            let games = await db.collection('games').find( {gameCreator: req.session.userID, completed: 'true'} ).toArray();
             console.log(games);
             res.json(games);
+        })
+        router.get('/api/active-games', redirectLogin , async (req,res,next) => {
+            console.log('call established');
+            let games = await db.collection('games').find( {gameCreator: req.session.userID, completed: 'false'} ).toArray();
+            console.log(games);
+            res.json(games);
+        })
+        router.get('/game/:id', redirectLogin , async (req,res,next) => {
+            console.log('call established');
+            console.log(req.params.id);
+            let gameID = new ObjectId(req.params.id);
+            let game = await db.collection('games').find( {_id: gameID} ).toArray();
+            console.log(game);
+            res.json(game);
         })
     }
 });

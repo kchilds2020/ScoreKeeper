@@ -1,0 +1,20 @@
+#home-title{
+    height: 100px;
+}
+.game{
+    width: 80%;
+    height: 25px;
+    background-color: white;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 10px;
+    color: black;
+    font-size: 24px;
+    box-shadow: 2px 2px 6px rgb(61, 61, 61);
+    padding: 10px;
+}
+#create-game {
+    position: absolute;
+    bottom: 150px;
+}
+

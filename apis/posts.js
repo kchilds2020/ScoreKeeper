@@ -49,7 +49,7 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
                     console.log(user[0]._id)
                     req.session.userID = user[0]._id
                     console.log(req.session.userID);
-                    res.redirect('/score')
+                    res.redirect('/home')
                 } 
             })          
         })

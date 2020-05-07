@@ -1,5 +1,5 @@
 function getPastGames() {
-    axios.get('/api/games')
+    axios.get('/api/completed-games')
         .then(function (response) {
             const {data} = response;
             console.log(data);
@@ -18,7 +18,7 @@ function getPastGames() {
                 // Append a text node to the cell
                 var newText0  = document.createTextNode(`${element.gameName}`);
                 var newText1  = document.createTextNode(`${element.winner}`);
-                var newText2  = document.createTextNode(`${element.points}`);
+                var newText2  = document.createTextNode(`${element.winnerScore}`);
 
 
                 newCell0.appendChild(newText0);
