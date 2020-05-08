@@ -14,6 +14,32 @@ resetBtn.addEventListener('click',resetTimer);
 resetBtn.style.backgroundColor = 'rgb(89, 116, 189)';
 timerDiv.innerText=convertToMinAndSec(duration);
 
+
+function renderPage(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    dbID = urlParams.get('game');
+
+
+    let scoreTag = document.createElement("a");
+    scoreTag.href = `/score?game=${dbID}`;
+    scoreTag.innerText = 'Score';
+    document.querySelector('.navbar').appendChild(scoreTag);
+
+    let timerTag = document.createElement("a");
+    timerTag.href = `/timer?game=${dbID}`;
+    timerTag.innerText = 'Timer';
+    timerTag.className = 'active';
+    document.querySelector('.navbar').appendChild(timerTag);
+    
+
+    
+    
+    
+    
+    
+}
+
 function startTimer(){
     start = start ? false : true;
     console.log(start);
@@ -65,3 +91,5 @@ function convertToMinAndSec (duration){
     const seconds= duration%60;
     return seconds >= 10 ? `${minutes}:${seconds}` : `${minutes}:0${seconds}`;
 }
+
+window.onload = renderPage();
