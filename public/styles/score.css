@@ -4,7 +4,7 @@
     right: 20px; 
     width: 60px;
     height: 60px;
-    border-radius: 60px;
+    border-radius: 15px;
     font-size: x-large;
 
 }
@@ -34,4 +34,12 @@ padding:10px;
 .user-score{
 float:right;
 padding: 10px;
+}
+
+#complete-game{
+    position: absolute;
+    bottom: 150px;
+    left: 20px; 
+    height: 60px;
+    border-radius: 15px;
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectId;
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 const { auth, redirectLogin, redirectHome  } = require('./middleware.js');
@@ -53,6 +54,43 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
                 } 
             })          
         })
+
+         router.post('/api/create-game', async (req,res) => {
+            console.log(req.body);
+            let game = await db.collection('games').insertOne( {
+                gameCreator: req.session.userID,
+                gameName: req.body.gameName,
+                winner: req.body.winner,
+                winnerScore: req.body.winnerScore,
+                completed: req.body.completed,
+            });
+            console.log(game);
+            res.json(game); 
+      
+        }) 
+
+        router.post('/update-points/:id', async (req,res) => {
+            console.log(req.body);
+
+            console.log(req.params.id);
+            let gameID = new ObjectId(req.params.id);
+            let objectVar = `points.${req.body.user}`;
+            let objectVal = `${req.body.points}`;
+            let game = await db.collection('games').update( {_id: gameID}, {$set: {[objectVar]: objectVal}} );
+            console.log(game);
+            res.json(game); 
+      
+        })
+
+        router.post('/complete-game', async (req,res) => {
+            console.log(req.body);
+            let gameID = new ObjectId(req.body.gameID);
+            let game = await db.collection('games').update( {_id: gameID}, {$set: {winner: req.body.winner, winnerScore: req.body.winnerScore, completed: 'true'}} );
+            console.log(game);
+            res.json(game); 
+      
+        })
+
 
     }
 

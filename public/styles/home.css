@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 #create-game {
-    position: absolute;
-    bottom: 150px;
+    width: 100%;
+    margin-top: 40px;
 }
 

@@ -1,7 +1,6 @@
 *{
     margin: 0px;
     padding: 0px;
-    box-sizing: margin-box
 }
 html, body{
     width: 100%;
@@ -48,7 +47,7 @@ button:hover{
     display: flex;
     justify-content: space-evenly;
     overflow: hidden;
-    background-color: #4470c2;
+    background-color: #333;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -59,20 +58,20 @@ button:hover{
   .navbar a {
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     text-decoration: none;
     font-size: 17px;
     width: 100px;
     margin: auto;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 30px;
     
   }
   
   .navbar a:hover {
-    background: #f1f1f1;
+    background: #333;
     color: black;
+    box-shadow: inset 0px 0px 10px black;
   }
   
   .navbar a.active {
