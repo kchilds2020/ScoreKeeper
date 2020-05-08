@@ -69,15 +69,36 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
       
         }) 
 
+        router.post('/add-player', async (req,res) => {
+            console.log(req.body);
+
+            console.log(req.params.id);
+            let gameID = new ObjectId(req.body.gameID);
+
+            let game = await db.collection('games').updateOne( {_id: gameID}, { $push: {users: {name: req.body.user, points: req.body.points}}} );
+            //console.log(game);
+            res.json(game); 
+      
+        })
+
         router.post('/update-points/:id', async (req,res) => {
             console.log(req.body);
 
             console.log(req.params.id);
             let gameID = new ObjectId(req.params.id);
-            let objectVar = `points.${req.body.user}`;
-            let objectVal = `${req.body.points}`;
-            let game = await db.collection('games').update( {_id: gameID}, {$set: {[objectVar]: objectVal}} );
-            console.log(game);
+            let gameUsers = await db.collection('games').findOne( {_id: gameID} );
+            let users = gameUsers.users;
+            for(i = 0; i < users.length; i++){
+                if(users[i].name === req.body.user){
+                    users.splice(i,1);
+                    i--;
+                }
+            }
+            users.push({name: req.body.user, points: req.body.points});
+            console.log(users);
+
+            let game = await db.collection('games').update( {_id: gameID}, { $set: {users: users}} );
+            //console.log(game);
             res.json(game); 
       
         })
@@ -86,6 +107,23 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
             console.log(req.body);
             let gameID = new ObjectId(req.body.gameID);
             let game = await db.collection('games').update( {_id: gameID}, {$set: {winner: req.body.winner, winnerScore: req.body.winnerScore, completed: 'true'}} );
+            console.log(game);
+            res.json(game); 
+      
+        })
+
+        router.post('/delete-user', async (req,res) => {
+            console.log(`req.body.gameID: ${req.body.gameID}, req.body.user: ${req.body.user}, req.body.totalPoints: ${req.body.totalPoints}`);
+            let gameID = new ObjectId(req.body.gameID);
+            let game = await db.collection('games').update( {_id: gameID}, { $pull: {users : {name: req.body.user }} } );
+            console.log(game);
+            res.json(game); 
+      
+        })
+
+        router.post('/delete-game', async (req,res) => {
+            console.log(`req.body.gameID: ${req.body.gameID}`);
+            let game = await db.collection('games').remove( {_id: ObjectId(req.body.gameID)} );
             console.log(game);
             res.json(game); 
       

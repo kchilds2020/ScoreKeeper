@@ -11,7 +11,6 @@ let startBtnVal = false;
 startBtn.addEventListener('click',startTimer);
 resetBtn.addEventListener('click',resetTimer);
 
-resetBtn.style.backgroundColor = 'rgb(89, 116, 189)';
 timerDiv.innerText=convertToMinAndSec(duration);
 
 
@@ -20,6 +19,7 @@ function renderPage(){
     const urlParams = new URLSearchParams(queryString);
     dbID = urlParams.get('game');
 
+    startBtn.style.backgroundColor= "rgb(27, 223, 141)";
 
     let scoreTag = document.createElement("a");
     scoreTag.href = `/score?game=${dbID}`;
@@ -45,7 +45,7 @@ function startTimer(){
     console.log(start);
     if(current !== 0 && start == false){
         clearInterval(interval);
-        startBtn.style.backgroundColor= "rgb(89, 189, 134)";
+        startBtn.style.backgroundColor= "rgb(27, 223, 141)";
         startBtn.innerText="Start";
         return;
     }
@@ -81,7 +81,7 @@ function stopTimer(){
 function resetTimer(){
     current = 0;
     clearInterval(interval);
-    startBtn.style.backgroundColor= "rgb(89, 189, 134)";
+    startBtn.style.backgroundColor= "rgb(27, 223, 141)";
     startBtn.innerText="Start";
     timerDiv.innerText=convertToMinAndSec(duration);
 }

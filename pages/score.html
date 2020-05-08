@@ -8,11 +8,19 @@
     <title>Home</title>
 </head>
 <body>
+    <nav>
+        <div id = "home-title"><div id = "game-title"></div></div>
+    </nav>
     <div class="container">
-        <div id = "game-title"></div>
         <div id = "users"></div>
-        <button id="create-user" onclick="createUser()">+</button>
+        <div id = 'btn-container'>
+        <button id="create-user" onclick="createUser()">Add a Player</button>
         <button id="complete-game" onclick="finished()">Finished!</button>
+        </div>
+        
+        <button id="delete-user" onclick="deleteUser()">Delete a Player</button>
+        <button id="delete-game" onclick="deleteGame()">Delete Game</button>
+        
     </div>
 
 <div class="navbar">
