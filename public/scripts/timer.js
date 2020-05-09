@@ -24,13 +24,15 @@ function renderPage(){
     let scoreTag = document.createElement("a");
     scoreTag.href = `/score?game=${dbID}`;
     scoreTag.innerText = 'Score';
-    document.querySelector('.navbar').appendChild(scoreTag);
+    scoreTag.id = 'timer-links';
+    document.querySelector('.links').appendChild(scoreTag);
 
     let timerTag = document.createElement("a");
     timerTag.href = `/timer?game=${dbID}`;
     timerTag.innerText = 'Timer';
     timerTag.className = 'active';
-    document.querySelector('.navbar').appendChild(timerTag);
+    timerTag.id = 'timer-links';
+    document.querySelector('.links').appendChild(timerTag);
     
 
     
@@ -50,8 +52,8 @@ function startTimer(){
         return;
     }
     else{
-        startBtn.innerText="Stop"
-        startBtn.style.backgroundColor="red"
+        startBtn.innerText="Pause"
+        startBtn.style.backgroundColor="#b63f3f"
         interval = setInterval(function(){
             if((duration - current) > 0){
                 let val = convertToMinAndSec(duration - current);    

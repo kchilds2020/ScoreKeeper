@@ -1,20 +1,37 @@
 
 function getActiveGames() {
+
+    axios.get('/get-session-info')
+    .then(function (response) {
+        console.log(response)
+        let welcomeTitle = document.createElement('h1');
+        welcomeTitle.innerText = `Welcome ${response.data[0].firstname}`;
+        document.getElementById('home-title').appendChild(welcomeTitle);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
     axios.get('/api/active-games')
         .then(function (response) {
             const {data} = response;
             console.log(data);
-            data.forEach(element => {
-                console.log(element);
-                let game = document.createElement('div');
-                game.className = 'game';
-                game.id = element._id;
-                game.innerText = element.gameName;
+            if(data.length !== 0){
+                document.getElementById('act-games').style.visibility = 'visible';
+                data.forEach(element => {
+                    console.log(element);
+                    let game = document.createElement('div');
+                    game.className = 'game';
+                    game.id = element._id;
+                    game.innerText = element.gameName;
 
-                game.addEventListener('click', goToGame);
+                    game.addEventListener('click', goToGame);
 
-                document.getElementById('unfinished-games').appendChild(game);
-            });
+                    document.getElementById('unfinished-games').appendChild(game);
+                });
+            }else{
+                document.getElementById('act-games').style.visibility = 'hidden';
+            }
         })
         .catch(function (error) {
             console.log(error);

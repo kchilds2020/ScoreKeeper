@@ -1,1 +1,2 @@
--create a new game
+-Put character limits on inputs
+-put max number of users restriction

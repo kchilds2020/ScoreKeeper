@@ -9,17 +9,19 @@
 </head>
 <body>
     <nav>
-        <div id = "home-title"><h1>Welcome</h1></div>
+        <div id = "home-title"><!-- <h1>Welcome Kevin</h1> --></div>
     </nav>
     <div class="container">
-        <div><h2>Active Games</h2></div>
+        <div><h2 id = 'act-games'>Active Games</h2></div>
         <div id="unfinished-games"></div>
         <button id="create-game" onclick = "createGame()">New Game</button>
     </div>
 
     <div class="navbar">
-        <a href="/home" class="active">Score</a>
-        <a href="/games">History</a>  
+        <div class = 'links'>
+            <a href="/home" class="active">Home</a>
+            <a href="/games">History</a>  
+        </div>
     </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

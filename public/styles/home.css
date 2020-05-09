@@ -17,7 +17,12 @@
     cursor: pointer;
 }
 #create-game {
-    width: 100%;
+    display: block;
+    width: 200px;
+    margin: auto;
     margin-top: 40px;
+}
+#act-games{
+    visibility: hidden;
 }
 

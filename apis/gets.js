@@ -73,6 +73,12 @@ MongoClient.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifie
             console.log(game);
             res.json(game);
         })
+        router.get('/get-session-info', redirectLogin , async (req,res,next) => {
+            console.log('call established');
+            let user = await db.collection('users').find( {_id: ObjectId(req.session.userID)} ).toArray();
+            console.log(user);
+            res.json(user);
+        })
     }
 });
 

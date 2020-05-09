@@ -8,12 +8,14 @@ function renderData(){
     scoreTag.href = `/score?game=${dbID}`;
     scoreTag.innerText = 'Score';
     scoreTag.className = 'active';
-    document.querySelector('.navbar').appendChild(scoreTag);
+    scoreTag.id = 'score-links';
+    document.querySelector('.links').appendChild(scoreTag);
 
     let timerTag = document.createElement("a");
     timerTag.href = `/timer?game=${dbID}`;
     timerTag.innerText = 'Timer';
-    document.querySelector('.navbar').appendChild(timerTag);
+    timerTag.id = 'score-links';
+    document.querySelector('.links').appendChild(timerTag);
 
     axios.get(`/game/${dbID}`)
         .then(function (response) {
