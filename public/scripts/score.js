@@ -52,7 +52,7 @@ function renderData(){
 
                     name.addEventListener('click', updateScore);
                 } 
-                if(response.data[0].users[i].length > 0)
+                if(response.data[0].users.length > 0)
                 deleteButton.style.visibility = 'visible';
                 deleteGameButton.style.visibility = 'visible';
                 finishButton.style.visibility = 'visible';

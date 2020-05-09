@@ -52,7 +52,7 @@ padding: 10px;
 #delete-user{
     position: absolute;
     background-color: transparent;
-    bottom: 0px;
+    bottom: 10px;
     right: 20px;
     color: rgb(201, 201, 201);
     box-shadow: none;
@@ -64,7 +64,7 @@ padding: 10px;
 #delete-game{
     position: absolute;
     background-color: transparent;
-    bottom: 0px;
+    bottom: 10px;
     left: 20px;
     color:rgb(201, 201, 201);
     box-shadow: none;
