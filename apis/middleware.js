@@ -16,7 +16,7 @@ const redirectLogin = (req, res, next) => {
 const redirectHome = (req, res, next) => {
     console.log(req.session.userID);
     if(req.session.userID){
-        res.redirect('/score');
+        res.redirect('/home');
     }else{
         next();
     }
