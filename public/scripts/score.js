@@ -78,21 +78,25 @@ function updateScore(event){
     if(addValue !== null){
         let newValue = `${parseInt(event.target.nextElementSibling.innerText) + parseInt(addValue)}`;
         let user = {user: event.target.innerText, points: newValue, pointsID: event.target.id}
-
+        if(newValue == 'NaN'){
+            alert('Numbers Only! (0-9)');
+        }
+        else{
         axios.post(`/update-points/${dbID}`, user)
-        .then(function (response) {
-            event.target.nextElementSibling.innerText = newValue
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                event.target.nextElementSibling.innerText = newValue
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-        console.log(event.target.id);
+            console.log(event.target.id);
+        }
     }
 }
 
 function createUser(event){
-    let username = prompt("Name of User");
+    let username = prompt("Name of Player");
     let user = {gameID: dbID, user: username, points: '0'};
     if (username !== null){
         console.log(username);
