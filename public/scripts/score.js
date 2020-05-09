@@ -3,8 +3,12 @@ const urlParams = new URLSearchParams(queryString);
 dbID = urlParams.get('game');
 
 function renderData(){
-
+    let deleteButton = document.getElementById('delete-user');
+    let deleteGameButton = document.getElementById('delete-game');
+    let finishButton = document.getElementById('complete-game');
     let scoreTag = document.createElement("a");
+    let titleText = document.getElementById('title-text');
+    titleText.innerText = 'Score';
     scoreTag.href = `/score?game=${dbID}`;
     scoreTag.innerText = 'Score';
     scoreTag.className = 'active';
@@ -48,12 +52,17 @@ function renderData(){
 
                     name.addEventListener('click', updateScore);
                 } 
-                let deleteButton = document.getElementById('delete-user');
+                if(response.data[0].users[i].length > 0)
                 deleteButton.style.visibility = 'visible';
-                let deleteGameButton = document.getElementById('delete-game');
                 deleteGameButton.style.visibility = 'visible';
-                let finishButton = document.getElementById('complete-game');
                 finishButton.style.visibility = 'visible';
+                titleText.style.visibility = 'visible';
+            }
+            else{
+                deleteButton.style.visibility = 'hidden';
+                deleteGameButton.style.visibility = 'hidden';
+                finishButton.style.visibility = 'hidden';
+                titleText.style.visibility = 'hidden';
             }
 
             

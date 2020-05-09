@@ -1,2 +1,3 @@
+-add number of players in game
 -Put character limits on inputs
 -put max number of users restriction

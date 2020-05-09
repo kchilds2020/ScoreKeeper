@@ -23,7 +23,7 @@ function getActiveGames() {
                     let game = document.createElement('div');
                     game.className = 'game';
                     game.id = element._id;
-                    game.innerText = element.gameName;
+                    game.innerHTML = `<div style = "float: left">${element.gameName}</div><div style = "float: right">${element.users.length} players</div>`;
 
                     game.addEventListener('click', goToGame);
 

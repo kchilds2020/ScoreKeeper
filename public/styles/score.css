@@ -15,6 +15,7 @@
     color: black;
     font-size: 24px;
     box-shadow: 2px 2px 6px rgb(61, 61, 61);
+    cursor: pointer;
 
 }
 
@@ -43,29 +44,30 @@ padding: 10px;
     float: right;
     margin-top: 30px;
     height: 50px;
-    border-radius: 4px;
+    border-radius: 50px;
+    width: 50px;
 
 }
 
 #delete-user{
+    position: absolute;
     background-color: transparent;
-    float: right;
+    bottom: 0px;
+    right: 20px;
     color: rgb(201, 201, 201);
     box-shadow: none;
-    margin:auto;
-    margin-top: 300px;
     visibility: hidden;
     padding: 0px;
     
 }
 
 #delete-game{
+    position: absolute;
     background-color: transparent;
-    float: left;
+    bottom: 0px;
+    left: 20px;
     color:rgb(201, 201, 201);
     box-shadow: none;
-    margin: auto;
-    margin-top: 300px;
     visibility: hidden;
     padding: 0px;
     

@@ -4,7 +4,7 @@
   "description": "Score keeping web app for board games",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index",
     "dev": "nodemon index.js"
   },
   "repository": {

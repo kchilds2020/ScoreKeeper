@@ -19,12 +19,16 @@ async function register(event) {
     //validate all fields have values and passwords match
     if(firstNameIF.value === '' || lastNameIF.value === '' || userNameIF.value === '' || passwordIF.value === '' || vpasswordIF.value === ''){
         alert('all fields were not filled out');
-        resetFields();
         return;
+    }
+    else if(!hasUpperCase(userNameIF.value)){
+        alert('Username must have an upper-case character');
+        userNameIF.value = '';
     }
     else if(passwordIF.value !== vpasswordIF.value){
         alert('passwords do not match');
-        resetFields();
+        vpasswordIF.value = '';
+        passwordIF.value = '';
         return;
     }
     else{
@@ -41,6 +45,10 @@ async function register(event) {
               });
     }
 
+}
+
+function hasUpperCase(str) {
+    return (/[A-Z]/.test(str));
 }
 
 function resetFields(){
